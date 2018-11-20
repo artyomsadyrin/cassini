@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Su1-lc-q64" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-602" y="905"/>
+            <point key="canvasLocation" x="17" y="887"/>
         </scene>
         <!--Cassini View Controller-->
         <scene sceneID="vNk-nN-gZR">
@@ -55,16 +55,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Cassini"/>
+                                        <connections>
+                                            <segue destination="qDo-Xy-wJT" kind="showDetail" identifier="Cassini" id="wK2-XV-yZi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoG-sg-194">
                                         <rect key="frame" x="17.666666666666657" y="68" width="90" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Earth"/>
+                                        <connections>
+                                            <segue destination="qDo-Xy-wJT" kind="showDetail" identifier="Earth" id="mHV-9l-5F8"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1J-jY-reC">
                                         <rect key="frame" x="6" y="136" width="113" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Saturn"/>
+                                        <connections>
+                                            <segue destination="qDo-Xy-wJT" kind="showDetail" identifier="Saturn" id="jPb-sF-Pmr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -80,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9h-a4-0z0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="276" y="150.73891625615764"/>
+            <point key="canvasLocation" x="17" y="151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vKJ-2T-YAy">
@@ -98,7 +107,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6z-zF-crQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-602.39999999999998" y="150.73891625615764"/>
+            <point key="canvasLocation" x="-841" y="151"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="cxb-ZQ-hEl">
@@ -114,4 +123,7 @@
             <point key="canvasLocation" x="-1692" y="494"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wK2-XV-yZi"/>
+    </inferredMetricsTieBreakers>
 </document>
