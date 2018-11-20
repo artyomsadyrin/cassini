@@ -10,6 +10,11 @@ import UIKit
 
 class ImageViewController: UIViewController {
     
+    //https://upload.wikimedia.org/wikipedia/commons/5/55/Stanford_Oval_September_2013_panorama.jpg
+    //https://www.jpl.nasa.gov/images/cassini/20090202/pia03883-full.jpg
+    
+    static let stanford = Bundle.main.url(forResource: "oval", withExtension: ".jpg")
+    
     var imageURL: URL? {
         didSet {
             imageView.image = nil
@@ -29,7 +34,19 @@ class ImageViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     private func fetchImage() {
-        
+        if let url = imageURL {
+            let urlContents = try? Data(contentsOf: url)
+            if let imageData = urlContents {
+                imageView.image = UIImage(data: imageData)
+            }
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if imageView.image == nil {
+            imageURL = ImageViewController.stanford
+        }
     }
     
 }
