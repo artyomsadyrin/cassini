@@ -17,9 +17,7 @@ class ImageViewController: UIViewController {
     
     var imageURL: URL? {
         didSet {
-            imageView.image = nil
-            imageView.sizeToFit()
-            scrollView.contentSize = imageView.frame.size
+            image = nil
             if view.window != nil {
                 fetchImage()
             }
@@ -28,7 +26,7 @@ class ImageViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if imageView.image == nil {
+        if image == nil {
             fetchImage()
         }
     }
@@ -39,22 +37,31 @@ class ImageViewController: UIViewController {
         }
     }
     
+    private var image: UIImage? {
+        get {
+            return imageView.image
+        }
+        set {
+            imageView.image = newValue
+            imageView.sizeToFit()
+            scrollView.contentSize = imageView.frame.size
+        }
+    }
+    
     var imageView = UIImageView()
     
     private func fetchImage() {
         if let url = imageURL {
             let urlContents = try? Data(contentsOf: url)
             if let imageData = urlContents {
-                imageView.image = UIImage(data: imageData)
-                imageView.sizeToFit()
-                scrollView.contentSize = imageView.frame.size
+                image = UIImage(data: imageData)
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if imageView.image == nil {
+        if image == nil {
             imageURL = ImageViewController.stanford
         }
     }
