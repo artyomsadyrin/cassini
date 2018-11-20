@@ -57,22 +57,19 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        if image == nil {
-//            imageURL = ImageViewController.stanford
-//        }
-    }
-    
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
     
     private func fetchImage() {
         if let url = imageURL {
-            let urlContents = try? Data(contentsOf: url)
-            if let imageData = urlContents {
-                image = UIImage(data: imageData)
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                let urlContents = try? Data(contentsOf: url)
+                DispatchQueue.main.async { //put setting of image in main queue because this is UI stuff
+                    if let imageData = urlContents, url == self?.imageURL {
+                        self?.image = UIImage(data: imageData)
+                    }
+                }
             }
         }
     }
