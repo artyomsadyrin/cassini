@@ -14,9 +14,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     //https://www.jpl.nasa.gov/images/cassini/20090202/pia03883-full.jpg
     
     //MARK: Properties
-    
-    private let stanford = Bundle.main.url(forResource: "oval", withExtension: ".jpg")
-    
+
     var imageURL: URL? {
         didSet {
             image = nil
