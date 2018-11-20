@@ -59,9 +59,9 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if image == nil {
-            imageURL = ImageViewController.stanford
-        }
+//        if image == nil {
+//            imageURL = ImageViewController.stanford
+//        }
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
