@@ -15,7 +15,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK: Properties
     
-    static let stanford = Bundle.main.url(forResource: "oval", withExtension: ".jpg")
+    private let stanford = Bundle.main.url(forResource: "oval", withExtension: ".jpg")
     
     var imageURL: URL? {
         didSet {
