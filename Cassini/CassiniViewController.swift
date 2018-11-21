@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CassiniViewController: UIViewController {
+class CassiniViewController: UIViewController, UISplitViewControllerDelegate {
     
     private var NASA: Dictionary<String,URL> = {
         let NASAURLStrings = [
@@ -25,6 +25,20 @@ class CassiniViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        splitViewController?.delegate = self
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        if let ivc = secondaryViewController as? ImageViewController {
+            if ivc.imageURL == nil {
+                return true
+            }
+        }
+        return false
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
