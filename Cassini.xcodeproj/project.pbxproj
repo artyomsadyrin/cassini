@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BC86F8321A5784200C4FA46 /* DemoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC86F8221A5784200C4FA46 /* DemoURL.swift */; };
 		7BD9397721A3F56900406BAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9397621A3F56900406BAB /* AppDelegate.swift */; };
 		7BD9397C21A3F56A00406BAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BD9397A21A3F56A00406BAB /* Main.storyboard */; };
 		7BD9397E21A3F57300406BAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BD9397D21A3F57300406BAB /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7BC86F8221A5784200C4FA46 /* DemoURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoURL.swift; sourceTree = "<group>"; };
 		7BD9397321A3F56900406BAB /* Cassini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cassini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD9397621A3F56900406BAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BD9397B21A3F56A00406BAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				7BD9398F21A444FB00406BAB /* CassiniViewController.swift */,
 				7BD9398921A3F9C100406BAB /* ImageViewController.swift */,
+				7BC86F8221A5784200C4FA46 /* DemoURL.swift */,
 				7BD9397A21A3F56A00406BAB /* Main.storyboard */,
 				7BD9398821A3F65600406BAB /* Supporting Files */,
 				7BD9398221A3F57300406BAB /* Info.plist */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC86F8321A5784200C4FA46 /* DemoURL.swift in Sources */,
 				7BD9398A21A3F9C100406BAB /* ImageViewController.swift in Sources */,
 				7BD9399021A444FB00406BAB /* CassiniViewController.swift in Sources */,
 				7BD9397721A3F56900406BAB /* AppDelegate.swift in Sources */,

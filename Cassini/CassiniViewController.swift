@@ -9,19 +9,6 @@
 import UIKit
 
 class CassiniViewController: UIViewController, UISplitViewControllerDelegate {
-    
-    private var NASA: Dictionary<String,URL> = {
-        let NASAURLStrings = [
-            "Cassini": "https://www.jpl.nasa.gov/images/cassini/20090202/pia03883-full.jpg",
-            "Earth": "https://www.nasa.gov/sites/default/files/wave_earth_mosaic_3.jpg",
-            "Saturn": "https://www.nasa.gov/sites/default/files/saturn_collage.jpg"
-        ]
-        var urls = Dictionary<String,URL>()
-        for (key, value) in NASAURLStrings {
-            urls[key] = URL(string: value)
-        }
-        return urls
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +20,8 @@ class CassiniViewController: UIViewController, UISplitViewControllerDelegate {
     }
     
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        if let ivc = secondaryViewController as? ImageViewController {
-            if ivc.imageURL == nil {
+        if let ivc = secondaryViewController as? UINavigationController, let imageVC = ivc.contents as? ImageViewController {
+            if imageVC.imageURL == nil {
                 return true
             }
         }
@@ -43,7 +30,7 @@ class CassiniViewController: UIViewController, UISplitViewControllerDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
-            if let url = NASA[identifier] {
+            if let url = DemoURL.NASA[identifier] {
                 if let imageVC = segue.destination.contents as? ImageViewController {
                     imageVC.imageURL = url
                     imageVC.title = (sender as? UIButton)?.currentTitle
