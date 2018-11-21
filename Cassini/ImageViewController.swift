@@ -10,9 +10,6 @@ import UIKit
 
 class ImageViewController: UIViewController, UIScrollViewDelegate {
     
-    //https://upload.wikimedia.org/wikipedia/commons/5/55/Stanford_Oval_September_2013_panorama.jpg
-    //https://www.jpl.nasa.gov/images/cassini/20090202/pia03883-full.jpg
-    
     //MARK: Properties
 
     var imageURL: URL? {
@@ -41,10 +38,13 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             imageView.image = newValue
             imageView.sizeToFit()
             scrollView? .contentSize = imageView.frame.size
+            spinner?.stopAnimating()
         }
     }
     
     var imageView = UIImageView()
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     //MARK: Methods
     
@@ -61,6 +61,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     private func fetchImage() {
         if let url = imageURL {
+            spinner.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 let urlContents = try? Data(contentsOf: url)
                 DispatchQueue.main.async { //put setting of image in main queue because this is UI stuff
@@ -71,5 +72,4 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             }
         }
     }
-    
 }
